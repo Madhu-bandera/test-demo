@@ -22,7 +22,7 @@ h2 {
         }
      h5{
          text-align: center;
-         font-size: 22px;
+         font-size: 20px;
          color: rgb(247, 7, 167);
      }  
      h3 {
@@ -38,7 +38,7 @@ h2 {
      }
      h1{
         text-align: center;
-        font-size: 21px;
+        font-size: 20px;
         color: rgb(235, 181, 181);
     } 
     body
@@ -51,7 +51,11 @@ padding: 11px;
 }
 p{
     text-align: center;
-    font-size: 40px;
-    color: rgb(7, 241, 171);
+    font-size: 29px;
+    color: rgb(7, 209, 148);
     font-family:'Courier New';
+}
+a{
+    border-radius: 30px;
+    color: rgb(255, 115, 0);
 }
