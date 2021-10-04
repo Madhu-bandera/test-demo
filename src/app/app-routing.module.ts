@@ -4,6 +4,7 @@ import { StudentComponent } from './student/student.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
+import { FormExampleComponent } from './form-example/form-example.component';
 
 const routes: Routes = 
 [
@@ -14,7 +15,9 @@ const routes: Routes =
   {path:"dashboard",
   component:DashboardComponent},
   {path:"admin",
-  component:AdminComponent},
+  component:AdminComponent},  
+  {path:"forms",
+  component:FormExampleComponent},
   {
     path: '',
     pathMatch: 'full',
