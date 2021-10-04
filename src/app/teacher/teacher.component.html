@@ -3,65 +3,94 @@
 <body>
 <h2><b>Enter Teachers Details</b></h2><br>
 <a class="btn btn-outline-warning" href="/dashboard"><b>Main page</b></a>
-<br><form>
-    <div class="row">
+<br>
+<form [formGroup]="myTeacher">
+  <div class="row">
       <div class="col">
-        <label for="inputName"><b>Enter teacher name</b></label>
-       <br> <input type="text" class="form-control" placeholder="Example : Thanu">
+        <label><b>Enter teacher name</b></label>
+       <br> <input type="text" class="form-control" placeholder="Example : Nikil" formControlName="name" [ngClass]="{'is-valid': myTeacher.value.name.length>0, 'is-invalid' :!myTeacher.value.name }" id="validationServer01"  required>
+       <div  [ngClass]="{'valid-feedback': myTeacher.value.name.length>0, 'invalid-feedback' :!myTeacher.value.name }">
+        {{myTeacher.value.name.length>0? 'Looks good!':'Please provide valid name'}}
+       </div>
       </div>
       <div class="col">
-        <label for="inputage"><b>Enter your age</b></label>       
-        <br> <input type="number" class="form-control" placeholder="Example : 3years">
-       </div>
+        <label for="inputId"><b>Enter your age</b></label>       
+        <br> <input type="text" class="form-control" placeholder="Example : 30 years" formControlName="age" [ngClass]="{'is-valid': myTeacher.value.age.length>0, 'is-invalid' :!myTeacher.value.age }" id="validationServer01"  required>
+        <div  [ngClass]="{'valid-feedback': myTeacher.value.age.length>0, 'invalid-feedback' :!myTeacher.value.age }">
+         {{myTeacher.value.age.length>0? 'Looks good!':'Please provide valid id'}} 
+               </div>
+      </div>
        <div class="col">
-        <label for="inputDOB"><b>Enter email id</b></label>
-        <br> <input type="text" class="form-control" placeholder="Example : nizamuddin@gmail.com">
+        <label for="inputEmail"><b>Enter your email id</b></label>
+        <br> <input type="text" class="form-control" placeholder="Example : bamadhu1995@gmail.com" formControlName="email" [ngClass]="{'is-valid': myTeacher.controls.email.valid, 'is-invalid' :!myTeacher.controls.email.valid }" id="validationServer01"  required>
+        <div  [ngClass]="{'valid-feedback': myTeacher.controls.email.valid, 'invalid-feedback' :!myTeacher.controls.email.valid }">
+         {{myTeacher.controls.email.valid? 'Looks good!':'Please provide valid Email id'}}
+      </div>
+     </div>  </div>
+  
+    <br><div class="row">
+     <div class="col">
+      <label for="inputphone"><b>Enter contact number</b></label>
+      <br> <input type="tel" class="form-control" maxlength="10" placeholder="Example : 1234567897" formControlName="phone" [ngClass]="{'is-valid': myTeacher.value.phone.length==10, 'is-invalid' :myTeacher.value.phone.length<10 }" id="validationServer01"  required>
+      <div  [ngClass]="{'valid-feedback': myTeacher.value.phone.length>0, 'invalid-feedback' :myTeacher.value.phone.length<10 }">
+       {{myTeacher.value.phone.length==10? 'Looks good!':'Please provide 10 digit phone number'}}
+      </div>
+     </div>
+      <div class="col"> 
+        <label for="inputphone"><b>Enter your experience</b></label>
+        <br> <input type="text" class="form-control" placeholder="Example : 2 years" formControlName="exp" [ngClass]="{'is-valid': myTeacher.value.exp.length>=0, 'is-invalid' :!myTeacher.value.exp }" id="validationServer01"  required>
+        <div  [ngClass]="{'valid-feedback': myTeacher.value.exp.length>0, 'invalid-feedback' :!myTeacher.value.exp }">
+         {{myTeacher.value.exp.length>0? 'Looks good!':'Please provide valid number'}}
+      </div>
+      </div>
+      <div class="col">
+        <label for="inputclass"><b>Enter your language</b></label>
+        <br> <input type="text" class="form-control" placeholder="Example : Kannada" formControlName="lang" [ngClass]="{'is-valid': myTeacher.value.lang.length>0, 'is-invalid' :!myTeacher.value.lang }" id="validationServer01"  required>
+        <div  [ngClass]="{'valid-feedback': myTeacher.value.lang.length>0, 'invalid-feedback' :!myTeacher.value.lang }">
+         {{myTeacher.value.lang.length>0? 'Looks good!':'Please provide valid class'}}
+        </div>
       </div>
     </div>
-  </form>
-  <form>
-        <br><div class="row">
-          <div class="col">
-            <label for="inputNumber"><b>Enter contact number</b></label>
-           <br> <input type="number" class="form-control" placeholder="Example : 0987654321">
-          </div>
-          <div class="col">
-            <label for="inputId"><b>Enter your language</b></label>       
-            <br> <input type="text" class="form-control" placeholder="Example : Kannada">
-           </div>
-           <div class="col">
-            <label for="inputDOB"><b>Enter your State</b></label>
-            <br> <input type="text" class="form-control" placeholder="Example : Karnataka">
-          </div>
-        </div>
-      </form>
-      <br><form>
-        <div class="row">
-          <div class="col">
-            <label for="inputNumber"><b>Enter your address</b></label>
-           <br> <input type="text" class="form-control" placeholder="Example : 7th cross dvg">
-          </div>
-          <div class="col">
-            <label for="inputId"><b>Enter area pincode</b></label>       
-            <br> <input type="number" class="form-control" placeholder="Example : 577002">
-           </div>
-           <div class="col">
-            <label for="inputDOB"><b>Enter your experience</b></label>
-            <br> <input type="text" class="form-control" placeholder="Example : 0-5years">
-          </div>
-        </div>
-      </form>
-      <form>
-        <div class="form-group">
-            <div class="form-check">
-             <br> <input class="form-check-input" type="checkbox" id="gridCheck">
-             <label class="form-check-label" for="gridCheck">
-            <p> I hereby declare that all the above-furnished details are true.</p>
-              </label>
-            </div>
-          </div>
-      </form>
-      <button type="button" class="btn btn-primary"><b>Save</b></button>
-    </body>
-    </html>
   
+    <br><div class="row">
+     <div class="col">
+        <label for="inputAdrress"><b>Enter your Address</b></label>
+        <br> <input type="text" class="form-control" placeholder="Example : 5th bloock dvg" formControlName="address" [ngClass]="{'is-valid': myTeacher.value.address.length>0, 'is-invalid' :!myTeacher.value.address }" id="validationServer01"  required>
+        <div  [ngClass]="{'valid-feedback': myTeacher.value.address.length>0, 'invalid-feedback' :!myTeacher.value.address }">
+         {{myTeacher.value.address.length>0? 'Looks good!':'Please provide valid Address'}}
+        </div>
+      </div>
+      <div class="col">
+        <label for="inputState"><b>Enter your State</b></label>
+        <br> <input type="text" class="form-control" placeholder="Example : Karnataka" formControlName="state" [ngClass]="{'is-valid': myTeacher.value.state.length>0, 'is-invalid' :!myTeacher.value.state }" id="validationServer01"  required>
+        <div  [ngClass]="{'valid-feedback': myTeacher.value.state.length>0, 'invalid-feedback' :!myTeacher.value.state }">
+         {{myTeacher.value.state.length>0? 'Looks good!':'Please provide State'}}
+        </div>
+      </div>
+      <div class="col">
+        <label for="inputphone"><b>Enter area pincode</b></label>
+        <br> <input type="tel" class="form-control" placeholder="Example : 577521" maxlength="6" formControlName="pincode" [ngClass]="{'is-valid': myTeacher.value.pincode.length>5, 'is-invalid' :!myTeacher.value.pincode }" id="validationServer01"  required>
+        <div  [ngClass]="{'valid-feedback': myTeacher.value.pincode.length>0, 'invalid-feedback' :!myTeacher.value.pincode }">
+         {{myTeacher.value.pincode.length>0? 'Looks good!':'Please provide valid pincode'}}
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="form-group">
+        <div class="form-check">
+         <br> <input class="form-check-input" type="checkbox" id="gridCheck">
+         <label class="form-check-label" for="gridCheck">
+        <p> I hereby declare that all the above-furnished details are true.</p>
+          </label>
+        </div>
+      </div>
+  </form>
+  <button (click)="Save()"class="btn btn-primary"><b>Save</b></button>
+  </body>
+  </html>
+  
+
+
+
+
