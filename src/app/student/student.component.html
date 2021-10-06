@@ -1,96 +1,276 @@
-<html>
-<head></head>
-<body>
-<h2><b>Enter Students Details</b></h2><br>
-<a class="btn btn-outline-warning" href="/dashboard"><b>Main page</b></a>
-<br>
+<div class="col-lg-10 my-4">
+  <h1 class="text-center"><b>Enter Student Records</b></h1>
+</div>
+
+<a class="btn btn-outline-success" href="/dashboard"><b>Main page</b></a>
+
 <form [formGroup]="myStudent">
   <div class="row">
-      <div class="col">
-        <label><b>Enter student name</b></label>
-       <br> <input type="text" class="form-control" placeholder="Example : Nikil" formControlName="name" [ngClass]="{'is-valid': myStudent.value.name.length>0, 'is-invalid' :!myStudent.value.name }" id="validationServer01"  required>
-       <div  [ngClass]="{'valid-feedback': myStudent.value.name.length>0, 'invalid-feedback' :!myStudent.value.name }">
-        {{myStudent.value.name.length>0? 'Looks good!':'Please provide valid name'}}
-       </div>
+    <div class="col-lg-3 my-2">
+      <label><b>Enter student name</b></label>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Example : Nikil"
+        formControlName="name"
+        [ngClass]="{
+          'is-valid': myStudent.value.name.length > 0,
+          'is-invalid': !myStudent.value.name
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myStudent.value.name.length > 0,
+          'invalid-feedback': !myStudent.value.name
+        }"
+      >
+        {{
+          myStudent.value.name.length > 0
+            ? "Looks good!"
+            : "please enter your name"
+        }}
       </div>
-      <div class="col">
-        <label for="inputId"><b>Enter your id</b></label>       
-        <br> <input type="text" class="form-control" placeholder="Example : 423cs" formControlName="id" [ngClass]="{'is-valid': myStudent.value.id.length>0, 'is-invalid' :!myStudent.value.id }" id="validationServer01"  required>
-        <div  [ngClass]="{'valid-feedback': myStudent.value.id.length>0, 'invalid-feedback' :!myStudent.value.id }">
-         {{myStudent.value.id.length>0? 'Looks good!':'Please provide valid id'}}
-               </div>
+    </div>
+    <div class="col-lg-3 my-2">
+      <label for="inputId"><b>Enter your id</b></label>
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Example : 423cs"
+        formControlName="id"
+        [ngClass]="{
+          'is-valid': myStudent.value.id.length > 0,
+          'is-invalid': !myStudent.value.id
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myStudent.value.id.length > 0,
+          'invalid-feedback': !myStudent.value.id
+        }"
+      >
+        {{
+          myStudent.value.id.length > 0
+            ? "Looks good!"
+            : "please enter your valid id"
+        }}
       </div>
-       <div class="col">
-        <label for="inputDOB"><b>Enter date of birth</b></label>
-        <br> <input type="date" class="form-control" placeholder="Example : " formControlName="DOB" [ngClass]="{'is-valid': myStudent.value.DOB.length>0, 'is-invalid' :!myStudent.value.DOB }" id="validationServer01"  required>
-        <div  [ngClass]="{'valid-feedback': myStudent.value.DOB.length>0, 'invalid-feedback' :!myStudent.value.DOB }">
-         {{myStudent.value.DOB.length>0? 'Looks good!':'Please provide valid DOB'}}
-          </div>
-          </div>
+    </div>
+    <div class="col-lg-3 my-2">
+      <label for="inputDOB"><b>Enter date of birth</b></label>
+
+      <input
+        type="date"
+        class="form-control"
+        placeholder="Example : "
+        formControlName="dob"
+        [ngClass]="{
+          'is-valid': myStudent.value.dob.length > 0,
+          'is-invalid': !myStudent.value.dob
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myStudent.value.dob.length > 0,
+          'invalid-feedback': !myStudent.value.dob
+        }"
+      >
+        {{
+          myStudent.value.dob.length > 0
+            ? "Looks good!"
+            : "please enter your DOB"
+        }}
+      </div>
+    </div>
   </div>
-  
-    <br><div class="row">
-     <div class="col">
-        <label for="inputEmail"><b>Enter your email id</b></label>
-        <br> <input type="text" class="form-control" placeholder="Example : bamadhu1995@gmail.com" formControlName="Email" [ngClass]="{'is-valid': myStudent.value.Email.length>0, 'is-invalid' :!myStudent.value.Email }" id="validationServer01"  required>
-        <div  [ngClass]="{'valid-feedback': myStudent.value.Email.length>0, 'invalid-feedback' :!myStudent.value.Email }">
-         {{myStudent.value.Email.length>0? 'Looks good!':'Please provide valid Email id'}}
-      </div>
-     </div>
-      <div class="col"> 
-        <label for="inputphone"><b>Enter contact number</b></label>
-        <br> <input type="tel" class="form-control" maxlength="10" placeholder="Example : 1234567897" formControlName="Phone" [ngClass]="{'is-valid': myStudent.value.Phone.length>=10, 'is-invalid' :!myStudent.value.Phone }" id="validationServer01"  required>
-        <div  [ngClass]="{'valid-feedback': myStudent.value.Phone.length>0, 'invalid-feedback' :!myStudent.value.Phone }">
-         {{myStudent.value.Phone.length>0? 'Looks good!':'Please provide valid number'}}
-      </div>
-      </div>
-      <div class="col">
-        <label for="inputclass"><b>Enter your Class</b></label>
-        <br> <input type="text" class="form-control" placeholder="Example : Diploma 1st" formControlName="Class" [ngClass]="{'is-valid': myStudent.value.Class.length>0, 'is-invalid' :!myStudent.value.Class }" id="validationServer01"  required>
-        <div  [ngClass]="{'valid-feedback': myStudent.value.Class.length>0, 'invalid-feedback' :!myStudent.value.Class }">
-         {{myStudent.value.Class.length>0? 'Looks good!':'Please provide valid class'}}
-        </div>
+
+  <div class="row">
+    <div class="col-lg-3 my-2">
+      <label for="inputEmail"><b>Enter your email id</b></label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Example : bamadhu1995@gmail.com"
+        formControlName="email"
+        [ngClass]="{
+          'is-valid': myStudent.value.email.length > 0,
+          'is-invalid': !myStudent.value.email
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myStudent.value.email.length > 0,
+          'invalid-feedback': !myStudent.value.email
+        }"
+      >
+        {{
+          myStudent.value.email.length > 0
+            ? "Looks good!"
+            : "please enter your email id"
+        }}
       </div>
     </div>
-  
-    <br><div class="row">
-     <div class="col">
-        <label for="inputAdrress"><b>Enter your Address</b></label>
-        <br> <input type="text" class="form-control" placeholder="Example : 5th bloock dvg" formControlName="Address" [ngClass]="{'is-valid': myStudent.value.Address.length>0, 'is-invalid' :!myStudent.value.Address }" id="validationServer01"  required>
-        <div  [ngClass]="{'valid-feedback': myStudent.value.Address.length>0, 'invalid-feedback' :!myStudent.value.Address }">
-         {{myStudent.value.Address.length>0? 'Looks good!':'Please provide valid Address'}}
-        </div>
-      </div>
-      <div class="col">
-        <label for="inputState"><b>Enter your State</b></label>
-        <br> <input type="text" class="form-control" placeholder="Example : Karnataka" formControlName="State" [ngClass]="{'is-valid': myStudent.value.State.length>0, 'is-invalid' :!myStudent.value.State }" id="validationServer01"  required>
-        <div  [ngClass]="{'valid-feedback': myStudent.value.State.length>0, 'invalid-feedback' :!myStudent.value.State }">
-         {{myStudent.value.State.length>0? 'Looks good!':'Please provide State'}}
-        </div>
-      </div>
-      <div class="col">
-        <label for="inputphone"><b>Enter area pincode</b></label>
-        <br> <input type="tel" class="form-control" placeholder="Example : 577521" maxlength="6" formControlName="pincode" [ngClass]="{'is-valid': myStudent.value.pincode.length>5, 'is-invalid' :!myStudent.value.pincode }" id="validationServer01"  required>
-        <div  [ngClass]="{'valid-feedback': myStudent.value.pincode.length>0, 'invalid-feedback' :!myStudent.value.pincode }">
-         {{myStudent.value.pincode.length>0? 'Looks good!':'Please provide valid pincode'}}
-        </div>
+    <div class="col-lg-3 my-2">
+      <label for="inputphone"><b>Enter contact number</b></label>
+      <input
+        type="tel"
+        class="form-control"
+        maxlength="10"
+        placeholder="Example : 1234567897"
+        formControlName="phone"
+        [ngClass]="{
+          'is-valid': myStudent.value.phone.length >= 10,
+          'is-invalid': !myStudent.value.phone
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myStudent.value.phone.length > 0,
+          'invalid-feedback': !myStudent.value.phone
+        }"
+      >
+        {{
+          myStudent.value.phone.length > 0
+            ? "Looks good!"
+            : "please enter 10 digit number"
+        }}
       </div>
     </div>
-  
-  
-    <div class="form-group">
-        <div class="form-check">
-         <br> <input class="form-check-input" type="checkbox" id="gridCheck">
-         <label class="form-check-label" for="gridCheck">
-        <p> I hereby declare that all the above-furnished details are true.</p>
-          </label>
-        </div>
+    <div class="col-lg-3 my-2">
+      <label for="inputclass"><b>Enter your Class</b></label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Example : Diploma 1st"
+        formControlName="class"
+        [ngClass]="{
+          'is-valid': myStudent.value.class.length > 0,
+          'is-invalid': !myStudent.value.class
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myStudent.value.class.length > 0,
+          'invalid-feedback': !myStudent.value.class
+        }"
+      >
+        {{
+          myStudent.value.class.length > 0
+            ? "Looks good!"
+            : "please enter your class"
+        }}
       </div>
-  </form>
-  <button (click)="Save()"class="btn btn-primary"><b>Save</b></button>
-  </body>
-  </html>
-  
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-lg-3 my-2">
+      <label for="inputAdrress"><b>Enter your Address</b></label>
 
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Example : 5th bloock dvg"
+        formControlName="address"
+        [ngClass]="{
+          'is-valid': myStudent.value.address.length > 0,
+          'is-invalid': !myStudent.value.address
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myStudent.value.address.length > 0,
+          'invalid-feedback': !myStudent.value.address
+        }"
+      >
+        {{
+          myStudent.value.address.length > 0
+            ? "Looks good!"
+            : "please enter your address"
+        }}
+      </div>
+    </div>
+    <div class="col-lg-3 my-2">
+      <label for="inputState"><b>Enter your State</b></label>
 
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Example : Karnataka"
+        formControlName="state"
+        [ngClass]="{
+          'is-valid': myStudent.value.state.length > 0,
+          'is-invalid': !myStudent.value.state
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myStudent.value.state.length > 0,
+          'invalid-feedback': !myStudent.value.state
+        }"
+      >
+        {{
+          myStudent.value.state.length > 0
+            ? "Looks good!"
+            : "please enter your state"
+        }}
+      </div>
+    </div>
+    <div class="col-lg-3 my-2">
+      <label for="inputphone"><b>Enter area pincode</b></label>
+
+      <input
+        type="tel"
+        class="form-control"
+        placeholder="Example : 577521"
+        maxlength="6"
+        formControlName="pincode"
+        [ngClass]="{
+          'is-valid': myStudent.value.pincode.length > 5,
+          'is-invalid': !myStudent.value.pincode
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myStudent.value.pincode.length > 0,
+          'invalid-feedback': !myStudent.value.pincode
+        }"
+      >
+        {{
+          myStudent.value.pincode.length > 0
+            ? "Looks good!"
+            : "please enter your area pincode"
+        }}
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck" />
+      <label class="form-check-label" for="gridCheck">
+        <p>I hereby declare that all the above-furnished details are true.</p>
+      </label>
+    </div>
+  </div>
+</form>
+<button (click)="Save()" class="btn btn-primary"><b>Save</b></button>
