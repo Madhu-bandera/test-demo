@@ -5,28 +5,24 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormExampleComponent } from './form-example/form-example.component';
+import { NotifyComponent } from './notify/notify.component';
 
-const routes: Routes = 
-[
-  {path:"student",
-  component:StudentComponent},
-  {path:"teacher",
-  component:TeacherComponent},
-  {path:"dashboard",
-  component:DashboardComponent},
-  {path:"admin",
-  component:AdminComponent},  
-  {path:"forms",
-  component:FormExampleComponent},
+const routes: Routes = [
+  { path: 'student', component: StudentComponent },
+  { path: 'teacher', component: TeacherComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'forms', component: FormExampleComponent },
+  { path: 'notify', component: NotifyComponent },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'dashboard'
+    redirectTo: 'dashboard',
   },
-  ];
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})  
-export class AppRoutingModule { }
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
