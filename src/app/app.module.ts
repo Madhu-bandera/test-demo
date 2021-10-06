@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormExampleComponent } from './form-example/form-example.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { NotifyComponent } from './notify/notify.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     TeacherComponent,
     DashboardComponent,
     AdminComponent,
-    FormExampleComponent
+    FormExampleComponent,
+    NotifyComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
