@@ -16,12 +16,12 @@ myStudent!:FormGroup;
     this.myStudent=this.fb.group({
       name:["",Validators.required ],
       id:["",Validators.required],
-      DOB:["",Validators.required],
-      Email:["",Validators.required],
-      Phone:["",Validators.required],
-      Class:["",Validators.required],
-      Address:["",Validators.required],
-      State:["",Validators.required],
+      dob:["",Validators.required],
+      email:["",Validators.required],
+      phone:["",Validators.required],
+      class:["",Validators.required],
+      address:["",Validators.required],
+      state:["",Validators.required],
       pincode:["",Validators.required],
 
 
@@ -31,7 +31,7 @@ myStudent!:FormGroup;
   Save(){
     console.log("form",this.myStudent.value)
     if(this.myStudent.valid){
-      alert("Name"+this.myStudent.value)
+      alert("Name"+this.myStudent.value.name)
     }
     else{
       alert("Please fill required fields")
