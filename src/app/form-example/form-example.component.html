@@ -1,15 +1,38 @@
-<form [formGroup]="myForm" >
-  
-    <div >
-        <label > Name</label>
-        <input type="text" class="form-control " formControlName="name" [ngClass]="{'is-valid': myForm.value.name.length>0, 'is-invalid' :!myForm.value.name }" id="validationServer01"  required>
-        <div  [ngClass]="{'valid-feedback': myForm.value.name.length>0, 'invalid-feedback' :!myForm.value.name }">
-         {{myForm.value.name.length>0? 'Looks good!':'Please provide valid name'}}
-        </div>
-      </div>
-      <div>
+<form [formGroup]="myForm">
+  <div>
+    <label> Name</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      [ngClass]="{
+        'is-valid': myForm.value.name.length > 0,
+        'is-invalid': !myForm.value.name
+      }"
+      id="validationServer01"
+      required
+    />
+    <div
+      [ngClass]="{
+        'valid-feedback': myForm.value.name.length > 0,
+        'invalid-feedback': !myForm.value.name
+      }"
+    >
+      {{
+        myForm.value.name.length > 0
+          ? "Looks good!"
+          : "Please provide valid name"
+      }}
+    </div>
+  </div>
+
+  <div>
     <button (click)="submit()">Submit</button>
-
-      </div>  
-
+  </div>
 </form>
+<div>
+  <input type="text" [(ngModel)]="city" />
+</div>
+<div>
+  <span>{{ city }}</span>
+</div>
