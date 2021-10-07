@@ -1,0 +1,183 @@
+<div class="col-lg-12 my-2">
+  <h1 class="text-center"><b>Registration Form</b></h1>
+</div>
+<form [formGroup]="myRegister">
+  <div class="row justify-content-center">
+    <div class="col-lg-3 my-2 text-center">
+      <label for="inputfname"><b>First name</b></label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="first name"
+        formControlName="name"
+        [ngClass]="{
+          'is-valid': myRegister.value.name.length > 0,
+          'is-invalid': !myRegister.value.name
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myRegister.value.name.length > 0,
+          'invalid-feedback': !myRegister.value.name
+        }"
+      >
+        {{
+          myRegister.value.name.length > 0
+            ? "Looks good!"
+            : "please enter your name"
+        }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-3 my-2 text-center">
+      <label for="inputlname"><b>Last name</b></label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="last name"
+        formControlName="lname"
+        [ngClass]="{
+          'is-valid': myRegister.controls.lname.valid,
+          'is-invalid': !myRegister.controls.lname.valid
+        }"
+        id="validationServer02"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myRegister.controls.lname.valid,
+          'invalid-feedback': !myRegister.controls.lname.valid
+        }"
+      >
+        {{
+          myRegister.controls.lname.valid
+            ? "Looks good!"
+            : "enter your last name"
+        }}
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-3 my-2 text-center">
+      <label for="inputphone"><b>Email id</b></label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="bandera@gmail.com"
+        formControlName="email"
+        [ngClass]="{
+          'is-valid': myRegister.controls.email.valid,
+          'is-invalid': !myRegister.controls.email.valid
+        }"
+        id="validationServer03"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myRegister.controls.email.valid,
+          'invalid-feedback': !myRegister.controls.email.valid
+        }"
+      >
+        {{
+          myRegister.controls.email.valid
+            ? "Looks good!"
+            : "please enter your email id"
+        }}
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-3 my-2 text-center">
+      <label for="inputnum"><b>Contact number</b></label>
+      <input
+        type="tel"
+        class="form-control"
+        placeholder="9876543210"
+        formControlName="phone"
+        maxlength="10"
+        [ngClass]="{
+          'is-valid': myRegister.value.phone.length == 10,
+          'is-invalid': myRegister.value.phone.length < 10
+        }"
+        id="validationServer04"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myRegister.controls.phone.valid,
+          'invalid-feedback': !myRegister.controls.phone.valid
+        }"
+      >
+        {{
+          myRegister.controls.phone.valid
+            ? "Looks good!"
+            : "enter your 10 digit number"
+        }}
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-3 my-2 text-center">
+      <label for="inputnum"><b>Password</b></label>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="* * * * * * * *"
+        formControlName="password"
+        [ngClass]="{
+          'is-valid': myRegister.controls.password.valid,
+          'is-invalid': !myRegister.controls.password.valid
+        }"
+        id="validationServer05"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myRegister.controls.password.valid,
+          'invalid-feedback': !myRegister.controls.password.valid
+        }"
+      >
+        {{
+          myRegister.controls.password.valid ? "Strong" : "enter your password"
+        }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-3 my-2 text-center">
+      <label for="inputnum"><b>Confirm Password</b></label>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="* * * * * * * *"
+        formControlName="confpassword"
+        [ngClass]="{
+          'is-valid': myRegister.controls.confpassword.valid,
+          'is-invalid': !myRegister.controls.confpassword.valid
+        }"
+        id="validationServer06"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myRegister.controls.confpassword.valid,
+          'invalid-feedback': !myRegister.controls.confpassword.valid
+        }"
+      >
+        {{
+          myRegister.controls.confpassword.valid
+            ? "Strong"
+            : "re-enter password"
+        }}
+      </div>
+    </div>
+  </div>
+</form>
+<div class="text-center">
+  <button (click)="submit()" class="btn btn-primary"><b>Submit</b></button>
+</div>
