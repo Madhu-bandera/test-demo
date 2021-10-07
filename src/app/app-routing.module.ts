@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormExampleComponent } from './form-example/form-example.component';
 import { NotifyComponent } from './notify/notify.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   { path: 'student', component: StudentComponent },
@@ -14,10 +16,12 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'forms', component: FormExampleComponent },
   { path: 'notify', component: NotifyComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
   },
 ];
 
