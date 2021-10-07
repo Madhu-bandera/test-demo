@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class FormExampleComponent implements OnInit {
   myForm!: FormGroup;
 
-  city: any;
+  city: any = '';
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -20,6 +20,12 @@ export class FormExampleComponent implements OnInit {
   }
   submit() {
     console.log('form', this.myForm.value);
+    // local stirage stores only string data
+    // setting data to local storage
+    // local staorage for entire window
+    localStorage.setItem('userInfo', JSON.stringify(this.myForm.value));
+    // session storage only for single tab
+    sessionStorage.setItem('name', 'madhu');
     if (this.city.length > 0) {
       alert('City ' + this.city);
     }
