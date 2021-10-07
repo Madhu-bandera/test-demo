@@ -11,6 +11,8 @@ import { FormExampleComponent } from './form-example/form-example.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { NotifyComponent } from './notify/notify.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { NotifyComponent } from './notify/notify.component';
     AdminComponent,
     FormExampleComponent,
     NotifyComponent,
+    LoginComponent,
+    RegistrationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
