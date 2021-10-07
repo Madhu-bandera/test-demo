@@ -1,0 +1,73 @@
+<div class="col-lg-12 my-4">
+  <h1 class="text-center"><b>Login</b></h1>
+</div>
+<form [formGroup]="myLogin">
+  <div class="row justify-content-center">
+    <div class="col-lg-3 my-4 text-center">
+      <label for="inputEmail"><b>Email</b></label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="bamadhu1995@gmail.com"
+        formControlName="email"
+        [ngClass]="{
+          'is-valid': myLogin.controls.email.valid,
+          'is-invalid': !myLogin.controls.email.valid
+        }"
+        id="validationServer01"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myLogin.controls.email.valid,
+          'invalid-feedback': !myLogin.controls.email.valid
+        }"
+      >
+        {{
+          myLogin.controls.email.valid
+            ? "Looks good!"
+            : "please enter your email id"
+        }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-3 my-2 text-center">
+      <label for="inputPassword"><b>Password</b></label>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="* * * * * * *"
+        formControlName="password"
+        [ngClass]="{
+          'is-valid': myLogin.controls.password.valid,
+          'is-invalid': !myLogin.controls.password.valid
+        }"
+        id="validationServer02"
+        required
+      />
+      <div
+        [ngClass]="{
+          'valid-feedback': myLogin.controls.password.valid,
+          'invalid-feedback': !myLogin.controls.password.valid
+        }"
+      >
+        {{
+          myLogin.controls.password.valid
+            ? "Strong!"
+            : "please enter your password"
+        }}
+      </div>
+    </div>
+  </div>
+</form>
+<div class="text-center">
+  <button (click)="submit()" class="btn btn-primary"><b>Submit</b></button>
+</div>
+<div class="text-center my-2">
+  <p><b>Not Registerd?</b></p>
+</div>
+<div class="text-center my-2">
+  <a href="#"><b>Create an account</b></a>
+</div>
