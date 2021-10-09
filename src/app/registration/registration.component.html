@@ -1,9 +1,12 @@
 <div class="col-lg-12 my-2">
-  <h1 class="text-center"><b>Registration Form</b></h1>
+  <h1 class="text-center">
+    <b>Registration Form</b>
+  </h1>
 </div>
+
 <form [formGroup]="myRegister">
   <div class="row justify-content-center">
-    <div class="col-lg-3 my-2 text-center">
+    <div class="col-lg-3 my-2">
       <label for="inputfname"><b>First name</b></label>
       <input
         type="text"
@@ -33,7 +36,7 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-lg-3 my-2 text-center">
+    <div class="col-lg-3 my-2">
       <label for="inputlname"><b>Last name</b></label>
       <input
         type="text"
@@ -62,7 +65,7 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-lg-3 my-2 text-center">
+    <div class="col-lg-3 my-2">
       <label for="inputphone"><b>Email id</b></label>
       <input
         type="text"
@@ -91,12 +94,12 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-lg-3 my-2 text-center">
+    <div class="col-lg-3 my-2">
       <label for="inputnum"><b>Contact number</b></label>
       <input
-        type="tel"
+        type="number"
         class="form-control"
-        placeholder="9876543210"
+        placeholder=""
         formControlName="phone"
         maxlength="10"
         [ngClass]="{
@@ -121,7 +124,7 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-lg-3 my-2 text-center">
+    <div class="col-lg-3 my-2">
       <label for="inputnum"><b>Password</b></label>
       <input
         type="password"
@@ -142,35 +145,37 @@
         }"
       >
         {{
-          myRegister.controls.password.valid ? "Strong" : "enter your password"
+          myRegister.controls.password.valid
+            ? "Strong"
+            : "alphabet letter & one number & one special character min-length-9"
         }}
       </div>
     </div>
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-lg-3 my-2 text-center">
+    <div class="col-lg-3 my-2">
       <label for="inputnum"><b>Confirm Password</b></label>
       <input
         type="password"
         class="form-control"
         placeholder="* * * * * * * *"
-        formControlName="confpassword"
+        formControlName="confPassword"
         [ngClass]="{
-          'is-valid': myRegister.controls.confpassword.valid,
-          'is-invalid': !myRegister.controls.confpassword.valid
+          'is-valid': myRegister.controls.confPassword.valid,
+          'is-invalid': !myRegister.controls.confPassword.valid
         }"
         id="validationServer06"
         required
       />
       <div
         [ngClass]="{
-          'valid-feedback': myRegister.controls.confpassword.valid,
-          'invalid-feedback': !myRegister.controls.confpassword.valid
+          'valid-feedback': myRegister.controls.confPassword.valid,
+          'invalid-feedback': !myRegister.controls.confPassword.valid
         }"
       >
         {{
-          myRegister.controls.confpassword.valid
+          myRegister.controls.confPassword.valid
             ? "Strong"
             : "re-enter password"
         }}
@@ -180,4 +185,10 @@
 </form>
 <div class="text-center">
   <button (click)="submit()" class="btn btn-primary"><b>Submit</b></button>
+</div>
+<div class="text-center my-4">
+  <p><b>Already Registerd?</b></p>
+</div>
+<div class="text-center my-2">
+  <a href="/login" class="text-danger"><b>Login an account</b></a>
 </div>
