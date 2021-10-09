@@ -1,11 +1,12 @@
-<div class="col-lg-10 my-4">
+<div class="col-lg-12 my-4">
   <h1 class="text-center"><b>Enter Student Records</b></h1>
 </div>
 
-<a class="btn btn-outline-success" href="/dashboard"><b>Main page</b></a>
-
+<div class="container d-block justify-content-center my-4">
+  <a class="btn btn-outline-warning" href="/dashboard"><b>Main page</b></a>
+</div>
 <form [formGroup]="myStudent">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-lg-3 my-2">
       <label><b>Enter student name</b></label>
 
@@ -92,7 +93,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-lg-3 my-2">
       <label for="inputEmail"><b>Enter your email id</b></label>
       <input
@@ -177,7 +178,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-lg-3 my-2">
       <label for="inputAdrress"><b>Enter your Address</b></label>
 
@@ -264,7 +265,7 @@
       </div>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group container d-block justify-content-center mt-4">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck" />
       <label class="form-check-label" for="gridCheck">
@@ -273,4 +274,6 @@
     </div>
   </div>
 </form>
-<button (click)="Save()" class="btn btn-primary"><b>Save</b></button>
+<div class="container d-block justify-content-center mt-4">
+  <button (click)="Save()" class="btn btn-primary"><b>Save</b></button>
+</div>
