@@ -8,11 +8,20 @@ import { FormExampleComponent } from './form-example/form-example.component';
 import { NotifyComponent } from './notify/notify.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AuthguardService } from './provider/auth-guard/authguard.service';
 
 const routes: Routes = [
   { path: 'student', component: StudentComponent },
-  { path: 'teacher', component: TeacherComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'teacher',
+    component: TeacherComponent,
+    canActivate: [AuthguardService],
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthguardService],
+  },
   { path: 'admin', component: AdminComponent },
   { path: 'forms', component: FormExampleComponent },
   { path: 'notify', component: NotifyComponent },
