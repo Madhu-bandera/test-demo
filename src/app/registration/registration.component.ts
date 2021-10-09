@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -8,12 +9,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
   myRegister!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.myRegister = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      lname: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      name: ['', [Validators.required]],
+      lname: ['', [Validators.required]],
       email: [
         '',
         [
@@ -27,16 +28,16 @@ export class RegistrationComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern(
-            '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
+            '(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}'
           ),
         ],
       ],
-      confpassword: [
+      confPassword: [
         '',
         [
           Validators.required,
           Validators.pattern(
-            '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
+            '(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}'
           ),
         ],
       ],
@@ -44,17 +45,28 @@ export class RegistrationComponent implements OnInit {
   }
 
   submit() {
-    console.log('Reg data', this.myRegister.value);
-    localStorage.setItem('myInfo', JSON.stringify(this.myRegister.value));
-    sessionStorage.setItem('bandera', 'madhu');
-
     if (this.myRegister.valid) {
-      alert(
-        this.myRegister.value.password == this.myRegister.value.confpassword
-      );
-    }
-    if (this.myRegister.invalid) {
+      if (
+        this.myRegister.value.password == this.myRegister.value.confPassword
+      ) {
+        alert('registration success');
+        console.log('Reg data', this.myRegister.value);
+        localStorage.setItem('userInfo', JSON.stringify(this.myRegister.value));
+        sessionStorage.setItem('bandera', 'madhu');
+        this.router.navigateByUrl('/login');
+      } else {
+        alert('Password mismatch');
+      }
+    } else {
       alert('please fill all fields');
     }
   }
 }
+
+//if(this.myRegister.valid) {
+//alert(
+//this.myRegister.value.password == this.myRegister.value.confpassword
+//);
+//}
+//if (this.myRegister.invalid) {
+//  alert('please fill all fields');
