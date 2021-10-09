@@ -1,5 +1,7 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   myLogin!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-    const data: any = localStorage.getItem('myInfo');
+    const data: any = localStorage.getItem('userInfo');
     const myInfo = JSON.parse(data);
-    console.log('userdata', myInfo.email);
+    if (myInfo) {
+      console.log('userdata', myInfo.name);
+    }
     this.myLogin = this.fb.group({
       email: [
         '',
@@ -22,24 +26,25 @@ export class LoginComponent implements OnInit {
           Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
         ],
       ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
-          ),
-        ],
-      ],
+      password: ['', [Validators.required]],
     });
   }
   submit() {
     console.log('login', this.myLogin.controls.password.valid);
 
     if (this.myLogin.valid) {
-      alert('Email :' + this.myLogin.value.email);
+      const res: any = localStorage.getItem('userInfo');
+      const userInfo: any = JSON.parse(res);
+      if (userInfo) {
+        if (userInfo.email == this.myLogin.value.email) {
+          if (userInfo.password == this.myLogin.value.password) {
+            localStorage.setItem('x-auth', 'success');
+            this.router.navigateByUrl('/dashboard');
+          }
+        }
+      }
     } else {
-      alert('Please enter email id & password');
+      alert('Please enter your email id & password');
     }
   }
 }
