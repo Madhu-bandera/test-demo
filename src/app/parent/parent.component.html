@@ -1,0 +1,9 @@
+<app-child
+  *ngIf="list && list.length > 0"
+  [list]="list"
+  title="Users"
+  (newItemEvent)="logoutParent($event)"
+></app-child>
+
+<!-- In case of binding we are passing varible  -->
+<!-- In case of value pass without binding -->
