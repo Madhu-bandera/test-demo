@@ -9,6 +9,9 @@ import { NotifyComponent } from './notify/notify.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AuthguardService } from './provider/auth-guard/authguard.service';
+import { UserComponent } from './user/user.component';
+import { ParentComponent } from './parent/parent.component';
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
   { path: 'student', component: StudentComponent },
@@ -27,6 +30,15 @@ const routes: Routes = [
   { path: 'notify', component: NotifyComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
+  { path: 'user', component: UserComponent },
+  { path: 'posts', component: PostsComponent },
+
+  {
+    path: 'parent',
+    component: ParentComponent,
+    canActivate: [AuthguardService],
+  },
+
   {
     path: '',
     pathMatch: 'full',
