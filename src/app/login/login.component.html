@@ -3,12 +3,12 @@
 </div>
 <form [formGroup]="myLogin">
   <div class="row justify-content-center">
-    <div class="col-lg-3 my-4 text-center">
+    <div class="col-lg-3 my-3">
       <label for="inputEmail"><b>Email</b></label>
       <input
         type="text"
         class="form-control"
-        placeholder="bamadhu1995@gmail.com"
+        placeholder="Enter your email id"
         formControlName="email"
         [ngClass]="{
           'is-valid': myLogin.controls.email.valid,
@@ -24,21 +24,19 @@
         }"
       >
         {{
-          myLogin.controls.email.valid
-            ? "Looks good!"
-            : "please enter your email id"
+          myLogin.controls.email.valid ? "Next" : "please enter your email id"
         }}
       </div>
     </div>
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-lg-3 my-2 text-center">
+    <div class="col-lg-3 my-3">
       <label for="inputPassword"><b>Password</b></label>
       <input
         type="password"
         class="form-control"
-        placeholder="* * * * * * *"
+        placeholder="********* "
         formControlName="password"
         [ngClass]="{
           'is-valid': myLogin.controls.password.valid,
@@ -55,7 +53,7 @@
       >
         {{
           myLogin.controls.password.valid
-            ? "Strong!"
+            ? "Next Submit"
             : "please enter your password"
         }}
       </div>
