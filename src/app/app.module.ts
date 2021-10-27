@@ -13,6 +13,11 @@ import { FormsModule } from '@angular/forms';
 import { NotifyComponent } from './notify/notify.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './user/user.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +30,18 @@ import { RegistrationComponent } from './registration/registration.component';
     NotifyComponent,
     LoginComponent,
     RegistrationComponent,
+    UserComponent,
+    ParentComponent,
+    ChildComponent,
+    PostsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
