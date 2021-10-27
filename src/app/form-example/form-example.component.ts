@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CommonServiceService } from '../provider/common-service/common-service.service';
 
 @Component({
   selector: 'app-form-example',
@@ -8,16 +9,32 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FormExampleComponent implements OnInit {
   myForm!: FormGroup;
-
+  list: any = [];
   city: any = '';
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private service: CommonServiceService) {}
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
       name: ['', Validators.required],
       phoneNo: '',
     });
+    this.getInformation();
   }
+
+  getInformation() {
+    this.service
+      .getInfo()
+      .then((res) => {
+        console.log('response from api', res);
+        if (res) {
+          this.list = res;
+        }
+      })
+      .catch((err) => {
+        console.log('err', err);
+      });
+  }
+
   submit() {
     console.log('form', this.myForm.value);
     // local stirage stores only string data
