@@ -13,25 +13,7 @@
         class="form-control"
         placeholder="first name"
         formControlName="name"
-        [ngClass]="{
-          'is-valid': myRegister.value.name.length > 0,
-          'is-invalid': !myRegister.value.name
-        }"
-        id="validationServer01"
-        required
       />
-      <div
-        [ngClass]="{
-          'valid-feedback': myRegister.value.name.length > 0,
-          'invalid-feedback': !myRegister.value.name
-        }"
-      >
-        {{
-          myRegister.value.name.length > 0
-            ? "Looks good!"
-            : "please enter your name"
-        }}
-      </div>
     </div>
   </div>
 
@@ -43,25 +25,7 @@
         class="form-control"
         placeholder="last name"
         formControlName="lname"
-        [ngClass]="{
-          'is-valid': myRegister.controls.lname.valid,
-          'is-invalid': !myRegister.controls.lname.valid
-        }"
-        id="validationServer02"
-        required
       />
-      <div
-        [ngClass]="{
-          'valid-feedback': myRegister.controls.lname.valid,
-          'invalid-feedback': !myRegister.controls.lname.valid
-        }"
-      >
-        {{
-          myRegister.controls.lname.valid
-            ? "Looks good!"
-            : "enter your last name"
-        }}
-      </div>
     </div>
   </div>
   <div class="row justify-content-center">
@@ -70,7 +34,7 @@
       <input
         type="text"
         class="form-control"
-        placeholder="bandera@gmail.com"
+        placeholder="Enter your email id"
         formControlName="email"
         [ngClass]="{
           'is-valid': myRegister.controls.email.valid,
@@ -87,7 +51,7 @@
       >
         {{
           myRegister.controls.email.valid
-            ? "Looks good!"
+            ? "Next"
             : "please enter your email id"
         }}
       </div>
@@ -101,10 +65,10 @@
         class="form-control"
         placeholder=""
         formControlName="phone"
-        maxlength="10"
+        size="10"
         [ngClass]="{
-          'is-valid': myRegister.value.phone.length == 10,
-          'is-invalid': myRegister.value.phone.length < 10
+          'is-valid': myRegister.controls.phone.valid,
+          'is-invalid': !myRegister.controls.phone.valid
         }"
         id="validationServer04"
         required
@@ -116,9 +80,7 @@
         }"
       >
         {{
-          myRegister.controls.phone.valid
-            ? "Looks good!"
-            : "enter your 10 digit number"
+          myRegister.controls.phone.valid ? "Valid" : "enter your mob number"
         }}
       </div>
     </div>
@@ -147,7 +109,7 @@
         {{
           myRegister.controls.password.valid
             ? "Strong"
-            : "alphabet letter & one number & one special character min-length-9"
+            : "alphabet letter & one number & one special character min-length-8"
         }}
       </div>
     </div>
